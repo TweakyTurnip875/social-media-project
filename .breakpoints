@@ -1,0 +1,50 @@
+{
+  "files": {
+    ".replit": [
+      {
+        "id": "8c9311ad-a215-41d8-8855-ad58c1f2f830",
+        "line": 1,
+        "version": 1,
+        "index": 0
+      }
+    ],
+    "src/App.jsx": [
+      {
+        "id": "aac9c7a8-f1ef-4f16-8f0e-a02d4f670d85",
+        "line": 7,
+        "version": 42,
+        "index": 99
+      },
+      {
+        "id": "c8d5db35-cf00-4ef0-9726-811416e0707a",
+        "line": 12,
+        "version": 42,
+        "index": 139
+      }
+    ],
+    "src/Components/App.jsx": [
+      {
+        "id": "cf75d37b-ce2f-4033-8379-33c93bea8355",
+        "line": 32,
+        "version": 1033,
+        "index": 857
+      }
+    ],
+    "src/Components/display-posts/display-posts-sidebar.jsx": [
+      {
+        "id": "ff0330ab-a412-4786-9991-0d33117ab74d",
+        "line": 1,
+        "version": 0,
+        "index": 0
+      }
+    ],
+    "src/Components/navigation/navigation-container.jsx": [
+      {
+        "id": "d6db4184-dba5-408e-8591-8e48b3a0e820",
+        "line": 1,
+        "version": 640,
+        "index": 0
+      }
+    ]
+  }
+}
