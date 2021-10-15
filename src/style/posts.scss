@@ -1,0 +1,47 @@
+.filter-container {
+  
+  display: grid;
+  grid-template-columns: 1fr;
+  .filter-wrapper {
+    display: flex;
+    justify-content: center;
+    .btn {
+      width: 100%;
+    }
+  }
+}
+.post-wrapper {
+  
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: 100px;
+  .posts {
+    box-shadow: 0px 3px 20px 4px rgb(32 23 23 / 14%);
+    padding: 40px;
+    
+    width:750px;
+  }
+
+}
+
+.post-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    
+    .post-btn {
+      position: fixed;
+      transition: 0.5s;
+      bottom: 0;
+      right: 0;
+      margin-right: 30px;
+      margin-bottom: 10px;
+      color: $blue;
+      font-size: 3.5em;
+      &:hover {
+        cursor: pointer;
+        transform: rotate(-180deg);
+        color: $dark-blue;
+      }
+    }
+  }

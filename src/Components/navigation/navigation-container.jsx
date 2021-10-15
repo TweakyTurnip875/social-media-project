@@ -6,21 +6,30 @@ const NavigationContainer = (props) => {
     <div className="navigation-container">
       <div className="nav-wrapper">
         <div className="left">
-          <NavLink exact to="/">
-            home
-          </NavLink>
-          <NavLink to="/posts">
-            posts
-          </NavLink>
-          <NavLink to="/about">
-            About
-          </NavLink>
-          <NavLink to="/contact">
-            Contact
-          </NavLink>
+        <div className="nav-link">
+            <NavLink exact to="/" activeClassName="nav-link-active">
+              home
+            </NavLink>
+          </div>
+          <div className="nav-link">
+            <NavLink to="/about" activeClassName="nav-link-active">
+              about
+            </NavLink>
+          </div>
+          <div className="nav-link">
+            <NavLink to="/contact" activeClassName="nav-link-active">
+              contact
+            </NavLink>
+          </div>
+          <div className="nav-link">
+            <NavLink to="/posts" activeClassName="nav-link-active">
+              posts
+            </NavLink>
+          </div>
+
         </div>
         <div className="right">
-          Welcome
+          Launch High School
         </div>
       </div>
     </div>

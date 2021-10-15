@@ -26,8 +26,8 @@
       {
         "id": "cf75d37b-ce2f-4033-8379-33c93bea8355",
         "line": 32,
-        "version": 1033,
-        "index": 857
+        "version": 1274,
+        "index": 1039
       }
     ],
     "src/Components/display-posts/display-posts-sidebar.jsx": [
@@ -42,8 +42,16 @@
       {
         "id": "d6db4184-dba5-408e-8591-8e48b3a0e820",
         "line": 1,
-        "version": 640,
+        "version": 883,
         "index": 0
+      }
+    ],
+    "src/Components/posts/posts-container.jsx": [
+      {
+        "id": "4b7531c8-e5a1-4e6f-b49f-cac64940af35",
+        "line": 54,
+        "version": 2755,
+        "index": 1379
       }
     ]
   }

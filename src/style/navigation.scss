@@ -1,0 +1,29 @@
+.nav-wrapper {
+  @include spacing();
+  border-bottom: 1px solid #e5e5e5;
+  text-transform: uppercase;
+  font-size: 0.93rem;
+  padding: 30px;
+  .left {
+    @include spacing();
+    width: 242px;
+    .nav-link {
+      border-bottom: 1px solid transparent;
+      transition: 0.5s ease-in-out;
+      a { 
+        text-decoration: none;
+        color: $grey;
+      }
+      &:hover {
+        a {
+         color: black;
+        }
+        border-bottom: 1px solid black;
+      }
+      .nav-link-active {
+        color: black;    
+        border-bottom: 1px solid black;
+      }
+    }
+  }
+}
