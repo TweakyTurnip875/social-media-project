@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+import RichTextEditor from '../forms/rich-text-editor'
+
 export default class PostForm extends Component {
   constructor() {
     super()
@@ -16,6 +18,10 @@ export default class PostForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.buildForm = this.buildForm.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.handleRichTextEditorChange = this.handleRichTextEditorChange.bind(this)
+  }
+  handleRichTextEditorChange(content) {
+    this.setState({ content })
   }
   handleChange(event) {
     this.setState({
@@ -27,7 +33,7 @@ export default class PostForm extends Component {
 
     //formData.append("portfolio_blog[id]", this.state.id)
     formData.append("portfolio_blog[title]", this.state.title)
-    //formData.append("portfolio_blog[content]", this.state.content)
+    formData.append("portfolio_blog[content]", this.state.content)
     formData.append("portfolio_blog[blog_status]", this.state.blog_status)
 
     return formData;
@@ -38,8 +44,11 @@ export default class PostForm extends Component {
       this.buildForm(),
       { withCredentials: true }
     ).then(res => {
+      this.setState({
+        title: "",
+        content: "",
+      })
       this.props.handleSuccessfulFormSubmission(res.data)
-      this.props.getPosts()
     }).catch(error => {
       console.log("Error submiting form", error)
     })
@@ -55,7 +64,12 @@ export default class PostForm extends Component {
           value={this.state.title}
           />
         </div>
-        <button class="btn" type="submit">Sumbit</button>
+        <div>
+          <RichTextEditor 
+          handleRichTextEditorChange={this.handleRichTextEditorChange}
+          />
+        </div>
+        <button className="btn" type="submit">Sumbit</button>
       </form>
     )
   }
