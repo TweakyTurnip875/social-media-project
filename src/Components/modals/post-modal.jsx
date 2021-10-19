@@ -19,7 +19,10 @@ export default class PostModal extends Component {
           this.props.handleModalClose()
         }}
       >
-        <PostForm handleSuccessfulFormSubmission={this.handleSuccessfulFormSubmission}/>
+        <PostForm 
+        getPosts={this.props.getPosts}
+        handleSuccessfulFormSubmission={this.handleSuccessfulFormSubmission}
+        />
       </ReactModal>
     )
   }

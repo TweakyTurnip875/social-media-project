@@ -39,6 +39,7 @@ export default class PostForm extends Component {
       { withCredentials: true }
     ).then(res => {
       this.props.handleSuccessfulFormSubmission(res.data)
+      this.props.getPosts()
     }).catch(error => {
       console.log("Error submiting form", error)
     })

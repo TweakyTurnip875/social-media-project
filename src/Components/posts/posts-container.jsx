@@ -16,7 +16,12 @@ export default class PostsContainer extends Component {
     this.handleNewPostClick = this.handleNewPostClick.bind(this)
     this.handleModalClose = this.handleModalClose.bind(this)
   }
-  
+  handleNewPostSubmission(post) {
+    this.setState({
+      postModalOpen: false,
+      postCollection: [post].concat(this.state.postCollection) 
+    })
+  }
   getPosts() {
     axios.get("https://launch.devcamp.space/portfolio/portfolio_blogs/").then(res => {
       this.setState({
@@ -24,12 +29,7 @@ export default class PostsContainer extends Component {
       })
     })
   }
-  handleNewPostSubmission(post) {
-    this.setState({
-      postModalOpen: false,
-      postCollection: [post].concat(this.state.postCollection) 
-    })
-  }
+
   handleNewPostClick() {
     this.setState({
       postModalOpen: true
