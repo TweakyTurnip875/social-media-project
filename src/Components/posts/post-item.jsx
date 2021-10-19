@@ -1,17 +1,25 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import striptags from 'striptags'
+import Truncate from 'react-truncate'
 
 const PostItem = (props) => {
   const { title, id, blog_status, content, featured_image_url } = props.postItem
   return (
-    <div className="post-item-container">
+    <div className="post-item-container" style={{ paddingBottom: "40px" }}>
       <div className="post-item-wrapper">
-        <NavLink to={`/post-detail/${id}`}>
-          <h1 style={{ fontSize: "1.5em" }}>{title}</h1>
-        </NavLink>
+        <Link to={`/post-detail/${id}`}>
+          <h1>{title}</h1>
+        </Link>
         <div className="post-item-content-wrapper">
           <div className="post-item-content">
-            {content}
+          <Truncate lines={5} ellipsis={
+            <span>
+              ...<Link to={`/post-detail/${id}`}>read more</Link>
+            </span>
+          }>
+            {striptags(content)}
+          </Truncate>
           </div>
         </div>
       </div>
