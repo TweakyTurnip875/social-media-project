@@ -12,6 +12,7 @@ export default class PostsContainer extends Component {
       postCollection: [],
       postModalOpen: false
     }
+    this.handleNewPostSubmission = this.handleNewPostSubmission.bind(this)
     this.handleNewPostClick = this.handleNewPostClick.bind(this)
     this.handleModalClose = this.handleModalClose.bind(this)
   }
@@ -21,6 +22,12 @@ export default class PostsContainer extends Component {
       this.setState({
         postCollection: res.data.portfolio_blogs
       })
+    })
+  }
+  handleNewPostSubmission(post) {
+    this.setState({
+      postModalOpen: false,
+      postCollection: [post].concat(this.state.postCollection) 
     })
   }
   handleNewPostClick() {
@@ -38,7 +45,9 @@ export default class PostsContainer extends Component {
   }
   render() {
     const postRecords = this.state.postCollection.map(postItem => {
-      return <PostItem postItem={postItem} />;
+      return (
+        <PostItem postItem={postItem} />
+      );
     })
     return (
       <div className="post-container">
@@ -52,22 +61,24 @@ export default class PostsContainer extends Component {
         </div>
           
         <div className="post-wrapper">
-          
-          <div />
             <div className="posts">
+            
               {postRecords}
             </div>
           <div className="post-btn-wrapper">
             <div className="post-btn">
-              <a onClick={this.handleNewPostClick}>
+              <a onClick={() => this.handleNewPostClick()}>
                 <FontAwesomeIcon icon="plus-circle" />
               </a>
             </div>
           </div>
         </div>
       </div>
-      <PostModal postModalOpen={this.state.postModalOpen} handleModalClose=
-      {this.handleModalClose}/>
+      <PostModal 
+      handleNewPostSubmission={this.handleNewPostSubmission} 
+      postModalOpen={this.state.postModalOpen} 
+      handleModalClose={this.handleModalClose}
+      />
       </div>
       
     )

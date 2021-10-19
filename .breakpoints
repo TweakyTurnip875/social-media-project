@@ -25,9 +25,9 @@
     "src/Components/App.jsx": [
       {
         "id": "cf75d37b-ce2f-4033-8379-33c93bea8355",
-        "line": 32,
-        "version": 1274,
-        "index": 1039
+        "line": 83,
+        "version": 2237,
+        "index": 2305
       }
     ],
     "src/Components/display-posts/display-posts-sidebar.jsx": [
@@ -49,9 +49,9 @@
     "src/Components/posts/posts-container.jsx": [
       {
         "id": "4b7531c8-e5a1-4e6f-b49f-cac64940af35",
-        "line": 54,
-        "version": 2755,
-        "index": 1379
+        "line": 63,
+        "version": 3246,
+        "index": 1629
       }
     ]
   }

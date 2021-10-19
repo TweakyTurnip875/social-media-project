@@ -1,0 +1,10 @@
+.post-item-wrapper {
+  a {
+    color: $blue;
+    text-decoration: none;
+    transition: 0.5s;
+    &:hover {
+      color: $dark-blue;
+    }
+  }
+}

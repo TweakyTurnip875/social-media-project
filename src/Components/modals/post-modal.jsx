@@ -6,8 +6,11 @@ import PostForm from '../posts/post-form'
 export default class PostModal extends Component {
   constructor(props) {
     super(props)
+    this.handleSuccessfulFormSubmission = this.handleSuccessfulFormSubmission.bind(this)
   }
-
+  handleSuccessfulFormSubmission(post) {
+    this.props.handleNewPostSubmission(post)
+  }
   render() {
     return (
       <ReactModal 
@@ -16,7 +19,7 @@ export default class PostModal extends Component {
           this.props.handleModalClose()
         }}
       >
-        <PostForm />
+        <PostForm handleSuccessfulFormSubmission={this.handleSuccessfulFormSubmission}/>
       </ReactModal>
     )
   }
