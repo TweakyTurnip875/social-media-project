@@ -1,7 +1,5 @@
 import reactRefresh from '@vitejs/plugin-react-refresh'
 const webpack = require("webpack")
-const isDev1 = import.meta.env === 'development'
-const isDev2 = process.env === 'development'
 
 /**
  * https://vitejs.dev/config/
