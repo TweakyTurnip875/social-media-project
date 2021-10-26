@@ -7,7 +7,6 @@ import { faPlusCircle, faAtom, faSpinner } from "@fortawesome/free-solid-svg-ico
 
 library.add(faPlusCircle, faAtom, faSpinner)
 
-import Login from './auth/login'
 import NavigationContainer from './navigation/navigation-container'
 import Home from './pages/home'
 import Posts from './pages/posts'
