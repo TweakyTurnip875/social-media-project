@@ -4,7 +4,7 @@
       {
         "id": "8c9311ad-a215-41d8-8855-ad58c1f2f830",
         "line": 1,
-        "version": 1,
+        "version": 90,
         "index": 0
       }
     ],
@@ -25,9 +25,9 @@
     "src/Components/App.jsx": [
       {
         "id": "cf75d37b-ce2f-4033-8379-33c93bea8355",
-        "line": 83,
-        "version": 2237,
-        "index": 2305
+        "line": 89,
+        "version": 3176,
+        "index": 2446
       }
     ],
     "src/Components/display-posts/display-posts-sidebar.jsx": [
@@ -36,6 +36,14 @@
         "line": 1,
         "version": 0,
         "index": 0
+      }
+    ],
+    "src/Components/filter-container.jsx": [
+      {
+        "id": "97ae4a21-3d02-4d4c-9876-2123099dc8f9",
+        "line": 12,
+        "version": 219,
+        "index": 195
       }
     ],
     "src/Components/navigation/navigation-container.jsx": [
@@ -49,9 +57,9 @@
     "src/Components/posts/posts-container.jsx": [
       {
         "id": "4b7531c8-e5a1-4e6f-b49f-cac64940af35",
-        "line": 63,
-        "version": 3246,
-        "index": 1629
+        "line": 110,
+        "version": 5782,
+        "index": 3187
       }
     ]
   }

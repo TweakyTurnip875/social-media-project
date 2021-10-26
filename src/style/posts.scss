@@ -1,49 +1,60 @@
-.filter-container {
-  
+.post-container {
   display: grid;
   grid-template-columns: 1fr;
-  .filter-wrapper {
-    display: flex;
-    justify-content: center;
-    .btn {
-      width: 100%;
-    }
-  }
-}
-.post-wrapper {
-  
-  display: flex;
-  justify-content: center;
-  position: relative;
-  margin-top: 90px;
-  
-  .posts {
-    border: 1px solid transparent;
-    box-shadow: 0px 3px 20px 4px rgb(32 23 23 / 14%);
-    padding: 50px;
-    width:850px;
-    border-radius: 20px;
-  }
-
-}
-
-.post-btn-wrapper {
-    display: flex;
-    justify-content: center;
+  grid-row-gap: 50px;
+  .post-wrapper {
+    @include center();
+    position: relative;
     
-    .post-btn {
-      position: fixed;
-      transition: 0.5s;
-      bottom: 0;
-      right: 0;
-      margin-right: 30px;
-      margin-bottom: 10px;
-      color: $blue;
-      font-size: 3.5em;
-      &:hover {
-        cursor: pointer;
-        transform: rotate(-180deg);
-        color: $dark-blue;
+    .posts {
+      width: 50%;
+      border: 1px solid transparent;
+      padding: 20px;
+      padding-top: 0px;
+      padding-bottom: 0px;  
+      border-radius: 0px;
+    }
+
+  }
+
+  .post-btn-wrapper {
+      @include center();
+      
+      .post-btn {
+        position: fixed;
+        transition: 0.5s;
+        bottom: 0;
+        right: 0;
+        margin-right: 30px;
+        margin-bottom: 10px;
+        color: $main;
+        font-size: 3.5em;
+        &:hover {
+          cursor: pointer;
+          transform: rotate(-225deg);
+          color: $alt-main;
+        }
+      }
+    }
+}
+.icon-wrapper {
+  @include center();
+  font-size: 3em;
+  svg {
+    color: $blue;
+  }
+}
+@media (max-width: 531px) {
+  .filter-container {
+    .filter-wrapper {
+      flex-direction: column;
+      .btn {
+        border-bottom: 1px solid grey;
+        border-left: none;
+        border-right: none;
+        border-collapse: collapse;
       }
     }
   }
+
+}

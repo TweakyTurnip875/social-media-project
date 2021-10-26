@@ -3,7 +3,7 @@ body {
     font-family: 'Titillium Web', sans-serif;
 }
 .btn {
-  background-color: $blue;
+  background-color: $main;
   border: none;
   outline: none;
   color: white;
@@ -11,7 +11,7 @@ body {
   font-size: 1em;
   transition: 0.5s;
   &:hover {
-    background-color: $dark-blue;
+    background-color: $alt-main;
     cursor: pointer;
   }
 }

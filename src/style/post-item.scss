@@ -1,10 +1,31 @@
+.post-item-container {
+  @include center();
+  width: 100%;
+  .id-wrapper {
+    border-bottom: 1px solid black;
+   }
+}
 .post-item-wrapper {
+  width:100%;
   a {
     color: $blue;
     text-decoration: none;
     transition: 0.5s;
     &:hover {
       color: $dark-blue;
+    }
+  }
+
+}
+
+@media (max-width: 531px) {
+  .post-item-container {
+
+    .id-wrapper {
+      display: none;
+    }
+    h1 {
+      font-size: 1.5em;
     }
   }
 }

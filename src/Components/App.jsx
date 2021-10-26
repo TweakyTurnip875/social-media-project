@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import dotenv from 'dotenv'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+import { faPlusCircle, faAtom, faSpinner } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faPlusCircle)
+library.add(faPlusCircle, faAtom, faSpinner)
 
 import Login from './auth/login'
 import NavigationContainer from './navigation/navigation-container'
@@ -19,10 +20,11 @@ import PostDetail from './pages/post-detail'
 export default class App extends Component {
   constructor(props) {
     super(props)
+
     this.state = {
       loginStatus: "NOT_LOGGED_IN",
-      email: '60010972@ironschools.org',
-      password: 'Alcatraz2006!'
+      email: "60010972@ironschools.org",
+      password: "Alcatraz2006!"
     }
     this.handleLogin = this.handleLogin.bind(this)
   }
@@ -63,7 +65,9 @@ export default class App extends Component {
     return (
       <div className="container">
 
-        <div>{this.state.loginStatus}</div>
+        {this.state.loginStatus === "NOT_LOGGED_IN"
+        ? <div>{this.state.loginStatus}</div>
+        : null}
         {this.state.loginStatus === "NOT_LOGGED_IN" 
         ? this.handleLogin()
         : null}
