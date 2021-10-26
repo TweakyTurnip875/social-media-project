@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import dotenv from 'dotenv'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,8 +22,6 @@ export default class App extends Component {
 
     this.state = {
       loginStatus: "NOT_LOGGED_IN",
-      email: "60010972@ironschools.org",
-      password: "Alcatraz2006!"
     }
     this.handleLogin = this.handleLogin.bind(this)
   }
@@ -43,8 +40,8 @@ export default class App extends Component {
     axios.post("https://api.devcamp.space/sessions",
     {
       client: {
-        email: this.state.email,
-        password: this.state.password,
+        email: import.meta.env.VITE_EMAIL,
+        password: import.meta.env.VITE_PASS,
       },
     },
     { withCredentials: true }

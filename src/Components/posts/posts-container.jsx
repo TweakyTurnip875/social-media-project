@@ -29,6 +29,7 @@ export default class PostsContainer extends Component {
     window.addEventListener("scroll", this.onScroll, false)
   }
   onScroll() {
+    
     if(this.state.postCollection.length === this.state.totalCount) {
       this.setState({
         isLoading: false
@@ -36,11 +37,14 @@ export default class PostsContainer extends Component {
       return;
     } 
     if(window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+      
       this.setState({
         isLoading: true
       })
+      
       this.getPosts()
     }
+    
   }
   handleFilterClick(filter) {
     // this.setState({
@@ -65,6 +69,7 @@ export default class PostsContainer extends Component {
         totalCount: res.data.meta.total_records,
         isLoading: false,
       })
+
     })
   }
   handleNewPostClick() {
@@ -107,12 +112,12 @@ export default class PostsContainer extends Component {
             <button className="btn">all</button>
           </div>
         </div>
-        {!this.state.isLoading
-        ? (
         <div className="post-wrapper">
             <div className="posts">
               {postRecords}
+              {!this.state.isLoading ? <div className="bar">no more posts</div> : null}
             </div>
+            
           <div className="post-btn-wrapper">
             <div className="post-btn">
               <a onClick={() => this.handleNewPostClick()}>
@@ -120,11 +125,16 @@ export default class PostsContainer extends Component {
               </a>
             </div>
           </div>
+          
         </div>
-        ) : (
+        
+        {this.state.isLoading
+        ? (
           <div className="icon-wrapper">
             <FontAwesomeIcon icon="spinner" pulse />
           </div>
+        ) : (
+          null
         )}
       </div>
     )

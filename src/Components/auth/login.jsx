@@ -5,8 +5,8 @@ export default class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      email: '60010972@ironschools.org',
-      password: 'Alcatraz2006!'
+      email: import.meta.env.VITE_EMAIL,
+      password: import.meta.env.VITE_PASS
     }
   }
   handleLogin() {
