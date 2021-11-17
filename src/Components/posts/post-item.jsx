@@ -15,26 +15,42 @@ const PostItem = (props) => {
   return (
     <div className="post-item-container" style={{ paddingBottom: "60px" }}>
       <div className="post-item-wrapper">
-        
           <Link to={`/post-detail/${id}`}>
             <h1>{tmp2}</h1>
           </Link>
-          
+
+
 
         <div className="post-item-content-wrapper">
           <div className="post-item-content">
-          <Truncate lines={5} ellipsis={
-            <span>
-              ...<Link to={`/post-detail/${id}`}>read more</Link>
-            </span>
-          }>
+                      {content != "" ? (
+
+              <Truncate lines={3} ellipsis={
+              <span>
+                ...<Link to={`/post-detail/${id}`}>read more</Link>
+              </span>
+            }>
             {striptags(content)}
-          </Truncate>
+            </Truncate>
+          ) : (
+            <div><strong>[empty]</strong></div>
+          )}
+            {featured_image_url != null ? (
+              <div className="featured-image-wrapper">
+                <div 
+                  style={{
+                    backgroundImage: "url(" + featured_image_url + ")",
+                  }}
+                />
+              </div>
+            ) : (
+              null
+            )}
+
           </div>
         </div>
         
       </div>
-      <div className="id-wrapper">{id}</div>
     </div>
   )
 }

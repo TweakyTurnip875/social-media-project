@@ -115,9 +115,7 @@ export default class PostsContainer extends Component {
         <div className="post-wrapper">
             <div className="posts">
               {postRecords}
-              {!this.state.isLoading ? <div className="bar">no more posts</div> : null}
             </div>
-            
           <div className="post-btn-wrapper">
             <div className="post-btn">
               <a onClick={() => this.handleNewPostClick()}>
@@ -125,7 +123,6 @@ export default class PostsContainer extends Component {
               </a>
             </div>
           </div>
-          
         </div>
         
         {this.state.isLoading
