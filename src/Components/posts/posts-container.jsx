@@ -82,7 +82,6 @@ export default class PostsContainer extends Component {
       postModalOpen: false
     })
   }
-
   componentDidMount() {
     this.getPosts()
   }
@@ -100,6 +99,7 @@ export default class PostsContainer extends Component {
     })
     return (
       <div className="post-container">
+        
         <PostModal 
         handleNewPostSubmission={this.handleNewPostSubmission} 
         postModalOpen={this.state.postModalOpen} 
@@ -112,6 +112,14 @@ export default class PostsContainer extends Component {
             <button className="btn">all</button>
           </div>
         </div>
+        {this.state.isLoading
+        ? (
+          <div className="icon-wrapper">
+            <FontAwesomeIcon icon="spinner" pulse />
+          </div>
+        ) : (
+          null
+        )}
         <div className="post-wrapper">
             <div className="posts">
               {postRecords}
@@ -124,15 +132,6 @@ export default class PostsContainer extends Component {
             </div>
           </div>
         </div>
-        
-        {this.state.isLoading
-        ? (
-          <div className="icon-wrapper">
-            <FontAwesomeIcon icon="spinner" pulse />
-          </div>
-        ) : (
-          null
-        )}
       </div>
     )
   }

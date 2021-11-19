@@ -2,11 +2,14 @@
 body {
     margin:0px;
     font-family: 'Titillium Web', sans-serif;
+    background-color: $offwhite;
+    //animation: changeGradient 10s ease-in-out infinite;
+}
+.home-container {
     background: url(../../assets/images/background.png);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    //animation: changeGradient 10s ease-in-out infinite;
 }
 .btn {
   background-color: $main;
@@ -26,6 +29,5 @@ body {
 }
 .home-container {
   background-color: transparent;
-  border-radius: 20px;
 }
 
