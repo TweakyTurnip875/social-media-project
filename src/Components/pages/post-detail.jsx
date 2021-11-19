@@ -21,18 +21,26 @@ export default class PostDetail extends React.Component {
     this.getPost()
   }
   render() {
-    const {title, content, featured_image_url} = this.state.currPost;
+    const {title, content, featured_image_url, blog_status} = this.state.currPost;
     return (
       <div className="post-detail-container">
-        <h1>{title}</h1>
-        {featured_image_url != null ? (
-          <div className="featured-image-wrapper">
-            <img src={featured_image_url} />
+        <div className="post-detail-wrapper">
+          <div>
+            <h1>{title}</h1>
+            <div>({blog_status})</div>
           </div>
-        ) : (
-          null
-        )}
-        <div>{ReactHtmlParser(content)}</div>
+          {featured_image_url != null ? (
+            <div 
+            className="featured-image-wrapper" 
+            style={{
+               backgroundImage: "url(" + featured_image_url + ")" 
+            }}
+            />
+          ) : (
+            null
+          )}
+          <div>{ReactHtmlParser(content)}</div>
+        </div>
       </div>
     )
   }

@@ -4,7 +4,7 @@ import PostsContainer from '../posts/posts-container'
 
 const Home = () => {
   return (
-    <div>
+    <div className="home-container">
       <PostsContainer />
     </div>
   )
