@@ -10,6 +10,9 @@ export default class PostsContainer extends Component {
     super()
     this.state = {
       postCollection: [],
+      filter: false,
+      filterCat: "",
+      allPosts: [],
       titleArray: [],
       postModalOpen: false,
       totalCount: 0,
@@ -24,12 +27,16 @@ export default class PostsContainer extends Component {
     this.handleNewPostClick = this.handleNewPostClick.bind(this)
     this.handleModalClose = this.handleModalClose.bind(this)
     this.onScroll = this.onScroll.bind(this)
+    this.getCategoryFromTitle = this.getCategoryFromTitle.bind(this)
     this.handleFilterClick = this.handleFilterClick.bind(this)
 
     window.addEventListener("scroll", this.onScroll, false)
   }
   onScroll() {
-    
+    // if filter is enabled, sort by the last clicked filter.
+    if(this.state.filter) {
+      this.handleFilterClick(this.state.filterCat)
+    }
     if(this.state.postCollection.length === this.state.totalCount) {
       this.setState({
         isLoading: false
@@ -41,25 +48,54 @@ export default class PostsContainer extends Component {
       this.setState({
         isLoading: true
       })
-      
+
       this.getPosts()
+
     }
     
   }
-  handleFilterClick(filter) {
-    // this.setState({
-    //   postCollection: this.state.postCollection.filter(res => {
-    //     return res.title == filter
-    //   })
-    // })
+  getCategoryFromTitle(title) {
+    /*
+      1. set var newTitle as title split into array.
+
+      2. only if title is greater or equal to two: 
+        set var cat as the last index value of newTitle 
+        (the category is stored at the end title and is hidden when displayed on screen.)
+
+      3. return cat variable.
+
+    */
+    var cat = null;
+    const newTitle = title.split(" ");
+    if(newTitle.length >= 2) {
+      cat = newTitle[newTitle.length - 1];
+    }
+    return cat;
+  }
+  handleFilterClick(cat) {
+  
+    this.setState({
+      filterCat: cat, // stores clicked filter in state.
+      filter: true, // filter mode set to true.
+      //filters only items with specified category out of all.
+      postCollection: this.state.postCollection.filter(res => {
+        return this.getCategoryFromTitle(res.title) == cat
+      })
+    })
   }
   handleNewPostSubmission(post) {
+    
     this.setState({
       postModalOpen: false,
       postCollection: [post].concat(this.state.postCollection) 
     })
+    // if filter is enabled, refresh the filter.
+    if(this.state.filter) {
+      this.handleFilterClick(this.state.filterCat)
+    }
   }
   getPosts() {
+
     this.setState({
       currentPage: this.state.currentPage + 1
     })
@@ -69,8 +105,8 @@ export default class PostsContainer extends Component {
         totalCount: res.data.meta.total_records,
         isLoading: false,
       })
-
     })
+    
   }
   handleNewPostClick() {
     this.setState({
@@ -87,6 +123,9 @@ export default class PostsContainer extends Component {
   }
   componentWillUnmount() {
     window.removeEventListener("scroll", this.onScroll, false)
+    this.setState({
+      filter: false
+    })
   }
 
   render() {
@@ -99,7 +138,6 @@ export default class PostsContainer extends Component {
     })
     return (
       <div className="post-container">
-        
         <PostModal 
         handleNewPostSubmission={this.handleNewPostSubmission} 
         postModalOpen={this.state.postModalOpen} 

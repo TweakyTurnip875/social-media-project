@@ -37,24 +37,38 @@ export default class PostForm extends Component {
     })
   }
   buildForm() {
-    let formData = new FormData();
+    /* ------- categories ------- */
 
-    //formData.append("portfolio_blog[id]", this.state.id)
-    var tc;
-    if(this.state.category === "projects" || this.state.category === "questions" || this.state.category === "all") {
-      tc = this.state.title + " " + this.state.category
-    } else {
-      tc = this.state.title
-    }
-    formData.append("portfolio_blog[title]", tc)
-    formData.append("portfolio_blog[content]", this.state.content)
-    formData.append("portfolio_blog[blog_status]", this.state.blog_status)
+      // This is a hacky way of implementing categories feature but this is the only way I can with this api.
 
-    if(this.state.featured_image) {
-      formData.append("portfolio_blog[featured_image]", this.state.featured_image)
-    }
+      var title;
+      if(this.state.category === "projects" || this.state.category === "questions" || this.state.category === "all") {
+        // Adds the category to the end of the title if user submits post with category.
+        title = this.state.title + " " + this.state.category
+        this.setState({
+          title
+        })
+      } else {
+        // Otherwise, just use current title
+        title = this.state.title
+        
+      }
+    /* ------- categories ------- */
 
-    return formData;
+
+    /* ------- build form -------- */
+      let formData = new FormData();
+
+      formData.append("portfolio_blog[title]", title)
+      formData.append("portfolio_blog[content]", this.state.content)
+      formData.append("portfolio_blog[blog_status]", this.state.blog_status)
+
+      if(this.state.featured_image) {
+        formData.append("portfolio_blog[featured_image]", this.state.featured_image)
+      }
+
+      return formData;
+    /* ------- build form -------- */
   }
   djsConfig() {
     return {
