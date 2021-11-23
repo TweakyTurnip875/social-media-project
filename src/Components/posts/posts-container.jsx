@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import PostModal from '../modals/post-modal'
 import PostItem from './post-item'
+import Theme from '../Theme'
+
 
 export default class PostsContainer extends Component {
   constructor() {
@@ -162,13 +164,15 @@ export default class PostsContainer extends Component {
             <div className="posts">
               {postRecords}
             </div>
-          <div className="post-btn-wrapper">
-            <div className="post-btn">
-              <a onClick={() => this.handleNewPostClick()}>
+
+            <div className="post-btn-container">
+              <div className="post-btn-wrapper">
+              <a className="modal-icon" onClick={() => this.handleNewPostClick()}>
                 <FontAwesomeIcon icon="plus-circle" />
               </a>
+              </div>
             </div>
-          </div>
+            
         </div>
       </div>
     )

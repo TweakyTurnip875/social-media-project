@@ -1,6 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
+import Theme from '../Theme'
+
 const NavigationContainer = (props) => {
   return (
     <div className="navigation-container">
@@ -28,10 +30,13 @@ const NavigationContainer = (props) => {
           </div>
 
         </div>
+        
         <div className="right">
           Launch High School
         </div>
+        
       </div>
+      
     </div>
   )
 }

@@ -7,7 +7,7 @@ export default class PostDetail extends React.Component {
     super(props)
     this.state = {
       currId: props.match.params.slug,
-      currPost: {}
+      currPost: {},
     }
   }
   getPost() {
@@ -22,11 +22,16 @@ export default class PostDetail extends React.Component {
   }
   render() {
     const {title, content, featured_image_url, blog_status} = this.state.currPost;
+    var t = title + "";
+    var tArr = t.split(" ")
+    if(tArr.length >= 2) {
+      t = t.replace("questions", "").replace("projects", "")
+    }
     return (
       <div className="post-detail-container">
         <div className="post-detail-wrapper">
           <div>
-            <h1>{title}</h1>
+            <h1>{t}</h1>
             <div>({blog_status})</div>
           </div>
           {featured_image_url != null ? (

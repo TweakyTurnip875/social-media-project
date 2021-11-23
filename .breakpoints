@@ -26,8 +26,8 @@
       {
         "id": "cf75d37b-ce2f-4033-8379-33c93bea8355",
         "line": 85,
-        "version": 3435,
-        "index": 2328
+        "version": 3468,
+        "index": 2342
       }
     ],
     "src/Components/display-posts/display-posts-sidebar.jsx": [
@@ -50,16 +50,24 @@
       {
         "id": "d6db4184-dba5-408e-8591-8e48b3a0e820",
         "line": 1,
-        "version": 883,
+        "version": 890,
         "index": 0
       }
     ],
     "src/Components/posts/posts-container.jsx": [
       {
         "id": "4b7531c8-e5a1-4e6f-b49f-cac64940af35",
-        "line": 132,
-        "version": 8666,
-        "index": 3726
+        "line": 154,
+        "version": 8827,
+        "index": 4366
+      }
+    ],
+    "src/style/posts.scss": [
+      {
+        "id": "a7c3eae8-6c11-4b44-813f-6bc1869dab4e",
+        "line": 24,
+        "version": 2841,
+        "index": 426
       }
     ]
   }

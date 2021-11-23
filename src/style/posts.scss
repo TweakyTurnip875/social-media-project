@@ -17,22 +17,24 @@
 
   }
 
-  .post-btn-wrapper {
+  .post-btn-container {
       @include center();
-      
-      .post-btn {
-        position: fixed;
-        transition: 0.5s;
-        bottom: 0;
-        right: 0;
-        margin-right: 30px;
-        margin-bottom: 10px;
-        color: $main;
-        font-size: 3.5em;
-        &:hover {
-          cursor: pointer;
-          transform: rotate(-225deg);
-          color: $alt-main;
+        .post-btn-wrapper {
+          a {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            margin-right: 30px;
+            margin-bottom: 10px;      
+            transition: 0.5s;
+            color: $main;
+            font-size: 3.5em;
+            &:hover {
+              cursor: pointer;
+              transform: rotate(-225deg);
+              color: $alt-main;
+            }
+          
         }
       }
     }

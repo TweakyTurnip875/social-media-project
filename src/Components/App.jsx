@@ -3,9 +3,9 @@ import axios from 'axios'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlusCircle, faAtom, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { faPlusCircle, faAtom, faSpinner, faCog } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faPlusCircle, faAtom, faSpinner)
+library.add(faPlusCircle, faAtom, faSpinner, faCog)
 
 import NavigationContainer from './navigation/navigation-container'
 import Home from './pages/home'
