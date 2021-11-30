@@ -9,7 +9,7 @@ library.add(faPlusCircle, faAtom, faSpinner, faCog)
 
 import NavigationContainer from './navigation/navigation-container'
 import Home from './pages/home'
-import Posts from './pages/posts'
+import Messenger from './pages/messenger'
 import About from './pages/about'
 import Contact from './pages/contact'
 import PostDetail from './pages/post-detail'
@@ -18,7 +18,6 @@ import PostDetail from './pages/post-detail'
 export default class App extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
       loginStatus: "NOT_LOGGED_IN",
     }
@@ -56,7 +55,6 @@ export default class App extends Component {
       console.log(error)
     })
   }
-
   render() {
     return (
       <div className="container">
@@ -71,7 +69,7 @@ export default class App extends Component {
           <NavigationContainer />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/posts" component={Posts} />
+            <Route path="/messenger" component={Messenger} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/post-detail/:slug/" 

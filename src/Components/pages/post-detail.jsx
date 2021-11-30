@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import ReactHtmlParser from 'react-html-parser';
+import Truncate from 'react-truncate'
+import striptags from 'striptags'
 
 export default class PostDetail extends React.Component {
   constructor(props) {
@@ -44,7 +46,7 @@ export default class PostDetail extends React.Component {
           ) : (
             null
           )}
-          <div>{ReactHtmlParser(content)}</div>
+          <div className="content">{striptags(content, [], "\n")}</div>
         </div>
       </div>
     )
