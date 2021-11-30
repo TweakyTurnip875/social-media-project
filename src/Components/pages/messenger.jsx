@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import MessagesInput from '../messenger/MessagesInput'
 import io from 'socket.io-client'
 
+import Socket from '../socket'
+
 const Messenger = () => {
   const [socket, setSocket] = useState(null)
 
@@ -13,7 +15,7 @@ const Messenger = () => {
   return (
     <div>
       {socket ? (
-        <MessagesInput />
+        <Socket />
       ) : (
         <div>disconnected</div>
       )}

@@ -13,6 +13,7 @@ import Messenger from './pages/messenger'
 import About from './pages/about'
 import Contact from './pages/contact'
 import PostDetail from './pages/post-detail'
+import Socket from './socket'
 
 
 export default class App extends Component {
@@ -58,7 +59,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="container">
-
+        
         {this.state.loginStatus === "NOT_LOGGED_IN"
         ? <div>{this.state.loginStatus}</div>
         : null}
