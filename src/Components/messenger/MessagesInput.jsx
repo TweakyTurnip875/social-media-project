@@ -9,13 +9,13 @@ class MessagesInput extends React.Component {
       value: null,
       setValue: "",
     }
-    this.submitForm = this.submitForm.bind(this)
+    this.handleNewMessageSubmit = this.handleNewMessageSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
 
-  submitForm(e) {
+  handleNewMessageSubmit(e) {
     e.preventDefault()
-    console.log(e);
+    this.props.socket.emit('message', this.state.setValue)
     this.setState({ setValue: "" })
   }
   handleChange(e) {
@@ -25,7 +25,7 @@ class MessagesInput extends React.Component {
   }
   render() {
     return (
-      <form onSubmit={this.submitForm}>
+      <form onSubmit={this.handleNewMessageSubmit}>
         
         <input 
           placeholder="Message"

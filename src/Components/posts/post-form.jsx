@@ -66,8 +66,8 @@ export default class PostForm extends Component {
       if(this.state.featured_image) {
         formData.append("portfolio_blog[featured_image]", this.state.featured_image)
       }
+        return formData;
 
-      return formData;
     /* ------- build form -------- */
   }
   djsConfig() {
