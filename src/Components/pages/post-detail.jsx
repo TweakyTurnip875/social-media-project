@@ -46,7 +46,7 @@ export default class PostDetail extends React.Component {
           ) : (
             null
           )}
-          <div className="content">{striptags(content, [], "\n")}</div>
+          <div className="content">{ReactHtmlParser(content)}</div>
         </div>
       </div>
     )

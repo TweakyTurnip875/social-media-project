@@ -1,8 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-import Theme from '../Theme'
-
 const NavigationContainer = (props) => {
   return (
     <div className="navigation-container">
@@ -24,8 +22,8 @@ const NavigationContainer = (props) => {
             </NavLink>
           </div>
           <div className="nav-link">
-            <NavLink to="/messenger" activeClassName="nav-link-active">
-              Messages
+            <NavLink to="/chat-home" activeClassName="nav-link-active">
+              Chat Home
             </NavLink>
           </div>
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import io from "socket.io-client";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle, faAtom, faSpinner, faCog } from "@fortawesome/free-solid-svg-icons";
@@ -9,21 +10,22 @@ library.add(faPlusCircle, faAtom, faSpinner, faCog)
 
 import NavigationContainer from './navigation/navigation-container'
 import Home from './pages/home'
-import Messenger from './pages/messenger'
+import ChatHome from './pages/chat-home'
+import ChatRoom from './pages/chat-room'
 import About from './pages/about'
 import Contact from './pages/contact'
 import PostDetail from './pages/post-detail'
-import Socket from './socket'
-
 
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       loginStatus: "NOT_LOGGED_IN",
+      socket: io.connect('/')
     }
     this.handleLogin = this.handleLogin.bind(this)
   }
+
   handleSuccessfulLogin() {
     this.setState({
       loginStatus: "LOGGED_IN"
@@ -69,8 +71,17 @@ export default class App extends Component {
         <Router>
           <NavigationContainer />
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/messenger" component={Messenger} />
+            <Route exact path="/" 
+              render={() => (
+                <Home socket={this.state.socket} />
+              )}
+            />
+            <Route path="/chat-room/:slug/" 
+              render={props => (
+                <ChatRoom {...props} />
+              )} 
+            />
+            <Route path="/chat-home" component={ChatHome} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/post-detail/:slug/" 
