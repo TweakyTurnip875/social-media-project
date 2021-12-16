@@ -73,9 +73,9 @@
     "src/Components/posts/posts-container.jsx": [
       {
         "id": "4b7531c8-e5a1-4e6f-b49f-cac64940af35",
-        "line": 169,
-        "version": 9742,
-        "index": 4780
+        "line": 181,
+        "version": 11604,
+        "index": 4938
       }
     ],
     "src/style/post-item.scss": [
