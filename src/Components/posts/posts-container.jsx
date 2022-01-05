@@ -15,16 +15,11 @@ export default class PostsContainer extends Component {
       totalCount: 0,
       currentPage: 0,
       isLoading: true,
-      categories: [
-        "projects", 
-        "questions",
-      ],
     }
     this.handleNewPostSubmission = this.handleNewPostSubmission.bind(this)
     this.handleNewPostClick = this.handleNewPostClick.bind(this)
     this.handleModalClose = this.handleModalClose.bind(this)
     this.onScroll = this.onScroll.bind(this)
-    this.handleFilterClick = this.handleFilterClick.bind(this)
 
     window.addEventListener("scroll", this.onScroll, false)
   }
@@ -45,13 +40,6 @@ export default class PostsContainer extends Component {
       this.getPosts()
     }
     
-  }
-  handleFilterClick(filter) {
-    // this.setState({
-    //   postCollection: this.state.postCollection.filter(res => {
-    //     return res.title == filter
-    //   })
-    // })
   }
   handleNewPostSubmission(post) {
     this.setState({
@@ -105,13 +93,6 @@ export default class PostsContainer extends Component {
         postModalOpen={this.state.postModalOpen} 
         handleModalClose={this.handleModalClose}
         />
-        <div className="filter-container">
-          <div className="filter-wrapper">
-            <button onClick={() => this.handleFilterClick("projects")} className="btn">projects</button>
-            <button onClick={() => this.handleFilterClick("questions")}   className="btn">questions</button>
-            <button className="btn">all</button>
-          </div>
-        </div>
         {this.state.isLoading
         ? (
           <div className="icon-wrapper">
