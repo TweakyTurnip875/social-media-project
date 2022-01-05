@@ -5,6 +5,7 @@ body {
     background-color: $offwhite;
     //animation: changeGradient 10s ease-in-out infinite;
 }
+
 .btn {
   background-color: $main;
   border: none;
@@ -18,5 +19,10 @@ body {
     cursor: pointer;
   }
 }
-
+.container {
+    display:grid;
+}
+.home-container {
+  background-color: transparent;
+}
 

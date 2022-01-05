@@ -8,14 +8,6 @@
         "index": 0
       }
     ],
-    "backend/socketIO.js": [
-      {
-        "id": "2b3782e5-df8c-418f-8547-4a9d6220381d",
-        "line": 21,
-        "version": 97,
-        "index": 424
-      }
-    ],
     "src/App.jsx": [
       {
         "id": "aac9c7a8-f1ef-4f16-8f0e-a02d4f670d85",
@@ -33,9 +25,9 @@
     "src/Components/App.jsx": [
       {
         "id": "cf75d37b-ce2f-4033-8379-33c93bea8355",
-        "line": 94,
-        "version": 5034,
-        "index": 2697
+        "line": 85,
+        "version": 3435,
+        "index": 2328
       }
     ],
     "src/Components/display-posts/display-posts-sidebar.jsx": [
@@ -54,44 +46,20 @@
         "index": 195
       }
     ],
-    "src/Components/messenger/Messages.jsx": [
-      {
-        "id": "9327be8d-0c6a-457f-8e31-f815275c82f5",
-        "line": 1,
-        "version": 887,
-        "index": 0
-      }
-    ],
     "src/Components/navigation/navigation-container.jsx": [
       {
         "id": "d6db4184-dba5-408e-8591-8e48b3a0e820",
         "line": 1,
-        "version": 962,
+        "version": 883,
         "index": 0
       }
     ],
     "src/Components/posts/posts-container.jsx": [
       {
         "id": "4b7531c8-e5a1-4e6f-b49f-cac64940af35",
-        "line": 169,
-        "version": 9742,
-        "index": 4780
-      }
-    ],
-    "src/style/post-item.scss": [
-      {
-        "id": "c0fe81ea-bae0-4e0f-824e-22747d7e5b20",
-        "line": 6,
-        "version": 2696,
-        "index": 111
-      }
-    ],
-    "src/style/posts.scss": [
-      {
-        "id": "a7c3eae8-6c11-4b44-813f-6bc1869dab4e",
-        "line": 1,
-        "version": 3255,
-        "index": 0
+        "line": 114,
+        "version": 7526,
+        "index": 3211
       }
     ]
   }
