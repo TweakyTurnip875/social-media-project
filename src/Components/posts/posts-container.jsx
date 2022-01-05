@@ -11,6 +11,7 @@ export default class PostsContainer extends Component {
     this.state = {
       postCollection: [],
       titleArray: [],
+      filter: "",
       postModalOpen: false,
       totalCount: 0,
       currentPage: 0,
@@ -19,6 +20,7 @@ export default class PostsContainer extends Component {
     this.handleNewPostSubmission = this.handleNewPostSubmission.bind(this)
     this.handleNewPostClick = this.handleNewPostClick.bind(this)
     this.handleModalClose = this.handleModalClose.bind(this)
+    this.handleFilterChange = this.handleFilterChange.bind(this)
     this.onScroll = this.onScroll.bind(this)
 
     window.addEventListener("scroll", this.onScroll, false)
@@ -40,6 +42,11 @@ export default class PostsContainer extends Component {
       this.getPosts()
     }
     
+  }
+  handleFilterChange(event) {
+    this.setState({
+      filter: event.target.value
+    })
   }
   handleNewPostSubmission(post) {
     this.setState({
@@ -101,6 +108,17 @@ export default class PostsContainer extends Component {
         ) : (
           null
         )}
+        <div 
+          value={this.state.filter} 
+          class="filter-container" 
+          onChange={this.handleFilterChange}
+        >
+          <select id="filter-options" name="filter-options">
+            <option value="all">All</option>
+            <option value="new">New</option>
+            <option value="oldest">Oldest</option>
+          </select>
+        </div>
         <div className="post-wrapper">
             <div className="posts">
               {postRecords}
