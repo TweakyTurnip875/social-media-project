@@ -8,7 +8,3 @@
   justify-content: center;
   align-items: center;
 }
-@mixin columns($num) {
-  display: grid;
-  grid-template-columns: repeat($num, 1fr);
-}

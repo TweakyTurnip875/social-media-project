@@ -22,19 +22,16 @@ const NavigationContainer = (props) => {
             </NavLink>
           </div>
           <div className="nav-link">
-            <NavLink to="/chat-home" activeClassName="nav-link-active">
-              Chat Home
+            <NavLink to="/posts" activeClassName="nav-link-active">
+              posts
             </NavLink>
           </div>
 
         </div>
-        
         <div className="right">
           Launch High School
         </div>
-        
       </div>
-      
     </div>
   )
 }

@@ -1,22 +1,38 @@
 .post-container {
-  .post-btn-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 50px;
+  .post-wrapper {
+    @include center();
+    position: relative;
+    
+    .posts {
+      width: 50%;
+      border: 1px solid transparent;
+      padding: 20px;
+      padding-top: 0px;
+      padding-bottom: 0px;  
+      border-radius: 0px;
+    }
+
+  }
+
+  .post-btn-wrapper {
       @include center();
-        .post-btn-wrapper {
-          a {
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            margin-right: 30px;
-            margin-bottom: 10px;      
-            transition: 0.5s;
-            color: $main;
-            font-size: 3.5em;
-            &:hover {
-              cursor: pointer;
-              transform: rotate(-225deg);
-              color: $alt-main;
-            }
-          
+      
+      .post-btn {
+        position: fixed;
+        transition: 0.5s;
+        bottom: 0;
+        right: 0;
+        margin-right: 30px;
+        margin-bottom: 10px;
+        color: $main;
+        font-size: 3.5em;
+        &:hover {
+          cursor: pointer;
+          transform: rotate(-225deg);
+          color: $alt-main;
         }
       }
     }
@@ -28,7 +44,9 @@
     color: $blue;
   }
 }
-
+.post-detail-container {
+  background-color: white;
+}
 @media (max-width: 531px) {
   .filter-container {
     .filter-wrapper {

@@ -5,6 +5,12 @@ body {
     background-color: $offwhite;
     //animation: changeGradient 10s ease-in-out infinite;
 }
+.home-container {
+    background: url(../../assets/images/background.png);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
 .btn {
   background-color: $main;
   border: none;
@@ -18,16 +24,10 @@ body {
     cursor: pointer;
   }
 }
+.container {
+    display:grid;
+}
+.home-container {
+  background-color: transparent;
+}
 
-.one-column {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-.two-column {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.three-column {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
