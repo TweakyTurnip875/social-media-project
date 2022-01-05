@@ -38,12 +38,8 @@ export default class PostForm extends Component {
   }
   buildForm() {
     let formData = new FormData();
-
-    var d = new Date();
-
-    var newTitle = this.state.title + " " + d.getTime()
     
-    formData.append("portfolio_blog[title]", newTitle)
+    formData.append("portfolio_blog[title]", this.state.title)
     formData.append("portfolio_blog[content]", this.state.content)
     formData.append("portfolio_blog[blog_status]", this.state.blog_status)
 
