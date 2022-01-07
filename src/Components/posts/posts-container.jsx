@@ -11,7 +11,6 @@ export default class PostsContainer extends Component {
     this.state = {
       postCollection: [],
       titleArray: [],
-      filter: "newest",
       postModalOpen: false,
       totalCount: 0,
       currentPage: 0,
@@ -20,7 +19,6 @@ export default class PostsContainer extends Component {
     this.handleNewPostSubmission = this.handleNewPostSubmission.bind(this)
     this.handleNewPostClick = this.handleNewPostClick.bind(this)
     this.handleModalClose = this.handleModalClose.bind(this)
-    this.handleFilterChange = this.handleFilterChange.bind(this)
     this.onScroll = this.onScroll.bind(this)
 
     window.addEventListener("scroll", this.onScroll, false)
@@ -41,39 +39,26 @@ export default class PostsContainer extends Component {
       
       this.getPosts()
     }
-  }
-  handleFilterChange(event) {
-   console.log(event)
-    this.setState({
-      filter: event.target.value,
-      postCollection: this.state.postCollection.reverse()
-    })
-
+    
   }
   handleNewPostSubmission(post) {
     this.setState({
       postModalOpen: false,
       postCollection: [post].concat(this.state.postCollection) 
     })
-    if(this.state.filter === "oldest") {
-      this.setState({
-        postCollection: this.state.postCollection.reverse()
-      })
-    }
   }
   getPosts() {
     this.setState({
       currentPage: this.state.currentPage + 1
     })
     axios.get(`https://launch.devcamp.space/portfolio/portfolio_blogs?page=${this.state.currentPage}`).then(res => {
+      this.setState({
+        postCollection: this.state.postCollection.concat(res.data.portfolio_blogs),
+        totalCount: res.data.meta.total_records,
+        isLoading: false,
+      })
 
-          this.setState({
-            postCollection: this.state.postCollection.concat(res.data.portfolio_blogs),
-            totalCount: res.data.meta.total_records,
-            isLoading: false,
-          })
-      console.log(this.state.postCollection)
-    })  
+    })
   }
   handleNewPostClick() {
     this.setState({
@@ -116,19 +101,6 @@ export default class PostsContainer extends Component {
         ) : (
           null
         )}
-        <div>
-          <select 
-          id="filter-options"
-          name="filter-options"
-          value={this.state.filter} 
-          class="filter-container" 
-          onChange={this.handleFilterChange}
-          >
-            <option value="newest">Newest</option>
-            <option value="oldest">Oldest</option>
-          </select>
-        </div>
-        {this.state.filter}
         <div className="post-wrapper">
             <div className="posts">
               {postRecords}

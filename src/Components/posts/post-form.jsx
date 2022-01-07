@@ -16,7 +16,7 @@ export default class PostForm extends Component {
       content: "",
       blog_status: "published",
       featured_image: "",
-      filter: "",
+      category: "",
       apiUrl: "https://launch.devcamp.space/portfolio/portfolio_blogs/",
       apiAction: "post"
     }
@@ -38,8 +38,15 @@ export default class PostForm extends Component {
   }
   buildForm() {
     let formData = new FormData();
-    
-    formData.append("portfolio_blog[title]", this.state.title)
+
+    //formData.append("portfolio_blog[id]", this.state.id)
+    var tc;
+    if(this.state.category === "projects" || this.state.category === "questions" || this.state.category === "all") {
+      tc = this.state.title + " " + this.state.category
+    } else {
+      tc = this.state.title
+    }
+    formData.append("portfolio_blog[title]", tc)
     formData.append("portfolio_blog[content]", this.state.content)
     formData.append("portfolio_blog[blog_status]", this.state.blog_status)
 
