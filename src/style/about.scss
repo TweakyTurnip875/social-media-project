@@ -1,0 +1,16 @@
+.about-container {
+  
+  .about-wrapper {
+    @include center();
+    .about {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+  }
+  .about-info {
+    
+  }
+  .top-wrapper {
+
+  }
+}
